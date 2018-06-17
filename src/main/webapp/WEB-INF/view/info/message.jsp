@@ -14,7 +14,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">

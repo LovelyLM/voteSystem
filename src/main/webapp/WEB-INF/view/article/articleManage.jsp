@@ -15,8 +15,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="<%=basePath%>/lib/layui/css/layui.css"/>
-    <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/layui/css/layui.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container" style="width: 90%;">
@@ -245,9 +245,9 @@
     </form>
 </div>
 </body>
-<script src="<%=basePath%>/lib/jquery-3.3.1.min.js"></script>
-<script src="<%=basePath%>/lib/layui/layui.all.js"></script>
-<script src="<%=basePath%>/lib/bootstrap.min.js"></script>
+<script src="<%=basePath%>/static/js/jquery-3.3.1.min.js"></script>
+<script src="<%=basePath%>/static/layui/layui.all.js"></script>
+<script src="<%=basePath%>/static/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     layui.use('element', function () {
         var element = layui.element;

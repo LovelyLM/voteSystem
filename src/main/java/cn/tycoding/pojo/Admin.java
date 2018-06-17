@@ -19,10 +19,6 @@ public class Admin implements Serializable {
     private String a_telephone;
     // 注册日期
     private String a_date;
-    // 身份
-    private String a_identity;
-    // 身份对应的id -->  1：管理员   2：录入员   3：审核员   4：普通用户
-    private int a_identity_id;
 
     public int getA_id() {
         return a_id;
@@ -54,22 +50,6 @@ public class Admin implements Serializable {
 
     public void setA_telephone(String a_telephone) {
         this.a_telephone = a_telephone;
-    }
-
-    public String getA_identity() {
-        return a_identity;
-    }
-
-    public void setA_identity(String a_identity) {
-        this.a_identity = a_identity;
-    }
-
-    public int getA_identity_id() {
-        return a_identity_id;
-    }
-
-    public void setA_identity_id(int a_identity_id) {
-        this.a_identity_id = a_identity_id;
     }
 
     public String getA_date() {

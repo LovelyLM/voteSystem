@@ -1,11 +1,13 @@
 **一个简单的文章管理系统（增加留言回复功能）**
 
-简单使用百度富文本实现了文章管理的功能，增加了留言回复功能，其实这个小项目只是为了测试怎样实现留言回复功能而提取出来的，并不是很完善，
-主要实现了对文章的增删改查功能，项目后台页面使用了layui官网提供的后台模板。
+采用`editor`的Markdown富文本编辑器实现文章的编写，增加了留言回复功能，
+目前仅主要实现了对文章的增删改查功能，项目后台页面使用了layui官网提供的后台模板。
 留言回复功能详情请参看我这篇博文：[留言回复功能](http://tycoding.cn/2018/05/17/留言回复功能/)
 
-**注**：本项目没有实现百度富文本的图片上传等一系列上传下载功能；采用MySQL建表来实现留言回复功能，这并不是一种合适的方式，如果有兴趣，
-请移步去了解一下`RabbitMQ消息组件`，本人如果是个人练习的小项目，本篇博文应该对你有所帮助。
+**注**：本项目目前没有实现图片上传下载功能；采用MySQL建表来实现留言回复功能，这并不是一种合适的方式，如果有兴趣，
+请移步去了解一下`RabbitMQ消息组件`。如果是个人练习的小项目，本篇博文应该对你有所帮助。
+
+本项目仍在完善ing...
 
 <!-- more -->
 
@@ -13,7 +15,7 @@
 ```
 环境：jdk1.8 + mysql5.7 + maven + tomcat8 + IDEA
 后端：spring + springmvc + mybatis
-前端：layui + bootstrap + Ueditor(百度富文本编辑器)
+前端：layui + bootstrap + editor(Markdown富文本编辑器)
 数据库名称：leave_message
 ```
 本项目GitHub地址：[GitHub](https://github.com/TyCoding/leave_message)
@@ -56,11 +58,17 @@ create table article(
 3. 留言表
 ```
 create table words(
+  #留言id编号
   lw_id int primary key auto_increment,
+  #留言人名字
   lw_name varchar(100),
+  #留言时间
   lw_date varchar(100),
+  #留言内容
   lw_content varchar(100),
+  #给谁留言
   lw_for_name varchar(100),
+  #在哪篇文章下留言
   lw_for_article_id varchar(100)
 )default charset = utf8;
 ```
@@ -68,27 +76,33 @@ create table words(
 4. 回复表
 ```
 create table reply(
+  #回复信息id编号
   lr_id int primary key auto_increment,
+  #回复人名字
   lr_name varchar(100),
+  #回复时间
   lr_date varchar(100),
+  #回复内容
   lr_content varchar(100),
+  #给谁回复
   lr_for_name varchar(100),
+  #在哪个留言下的回复
   lr_for_words varchar(100),
+  #在哪篇文章下的回复
   lr_for_article_id varchar(100)
 )default charset = utf8;
 ```
 
 ### 留言回复功能
 这里不在解释，请参看我这篇博文[留言回复功能](http://tycoding.cn/2018/05/17/留言回复功能/)
-上文已经说了，对于留言回复功能存在缺陷，详情请看：
+上文已经说了，对于留言回复功能D额设计和其存在缺陷，详情请看：
 
 ![](img/9-6.png)
 
 ### 文章管理功能
 仅仅实现了文章信息的增删改查，没有啥复杂的功能，也没啥可解释了啦（逃
 
-* 使用百度富文本添加文章
-*
+**详情请看GitHub上的源码，希望能对大家所有帮助**
 
 ## 项目效果截图
 **登录页(自己写的，感觉灰常好看了)**

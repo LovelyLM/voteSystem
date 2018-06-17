@@ -20,17 +20,11 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="<%=basePath%>/lib/layui/css/layui.css"/>
-    <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/layui/css/layui.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">
-    <div style="margin-top: 60px;">
-        <fieldset class="layui-elem-field layui-field-title">
-            <legend style="margin-left: 20px;padding: 0 10px;text-align: left;width: 140px;border-bottom: none;"><strong>更新文章信息</strong></legend>
-        </fieldset>
-    </div>
-    <br/>
     <!-- 文章信息的表单 -->
     <div class="layui-form">
         <form>
@@ -58,25 +52,8 @@
             <br/>
             <br/>
             <label><strong>文章内容</strong></label>
-
-            <!-- 加载编辑器的容器 -->
-
-            <script id="container" name="r_content" type="text/plain" style="height: 400px;"></script>
-            <!-- 配置文件 -->
-            <script src="<%=basePath%>/lib/ueditor/ueditor.config.js"></script>
-            <!-- 编辑器源码配置文件 -->
-            <script src="<%=basePath%>/lib/ueditor/ueditor.all.js"></script>
-
-            <script type="text/javascript">
-                <!-- 实例化编辑器 -->
-                var ue = UE.getEditor('container');
-                // 先回显数据
-                var content = '${article.r_content}';
-                ue.addListener("ready",function(){
-                    ue.setContent(content,true);
-                });
-
-            </script>
+            <!-- 加载Markdown富文本容器 -->
+            <div id="content" class="form-control">${article.r_content}</div>
             <div class="layui-inline" style="margin-top: 20px;">
                 <button type="button" id="verifyBtn" class="layui-btn">存入草稿箱</button>
                 <button type="button" id="publishBtn" class="layui-btn">发布</button>
@@ -89,10 +66,33 @@
 </body>
 
 <!-- JQuery的配置 -->
-<script src="<%=basePath%>/lib/jquery-3.3.1.min.js"></script>
+<script src="<%=basePath%>/static/js/jquery-3.3.1.min.js"></script>
 <!-- 加载Layui的配置 -->
-<script src="<%=basePath%>/lib/layui/layui.all.js"></script>
-
+<script src="<%=basePath%>/static/layui/layui.all.js"></script>
+<!-- Markdwon富文本 -->
+<script src="<%=basePath%>/static/editormd/lib/marked.min.js"></script>
+<script src="<%=basePath%>/static/editormd/lib/prettify.min.js"></script>
+<script src="<%=basePath%>/static/editormd/lib/raphael.min.js"></script>
+<script src="<%=basePath%>/static/editormd/lib/underscore.min.js"></script>
+<script src="<%=basePath%>/static/editormd/lib/sequence-diagram.min.js"></script>
+<script src="<%=basePath%>/static/editormd/lib/flowchart.min.js"></script>
+<script src="<%=basePath%>/static/editormd/lib/jquery.flowchart.min.js"></script>
+<script src="<%=basePath%>/static/editormd/editormd.min.js"></script>
+<script type="text/javascript">
+    var markdown;
+    $(function(){
+        markdown = editormd.markdownToHTML('content',{
+            htmlDecode: "style,script,iframe",
+            syncScrolling: 'single',
+            emoji: true,
+            taskList: true,
+            tex: true,
+            flowChart: true,
+            sequenceDiagram: true,
+            codeFold: true
+        });
+    });
+</script>
 <script type="text/javascript">
     <!-- 初始化layui -->
     layui.use('element', function(){

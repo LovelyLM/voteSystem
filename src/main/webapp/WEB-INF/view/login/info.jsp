@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
-    <link rel="stylesheet" href="<%=basePath%>/lib/layui/css/layui.css"/>
-    <link rel="stylesheet" href="<%=basePath%>/lib/font-awesome.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/layui/css/layui.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/css/font-awesome.min.css"/>
     <style type="text/css">
         .header{
-            background-image: url("<%=basePath%>/img/color.jpeg");
+            background-image: url("<%=basePath%>/static/img/color.jpeg");
             background-size: 100%;
             height: 240px;
         }

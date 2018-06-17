@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
-    <link rel="stylesheet" href="<%=basePath%>/lib/font-awesome.min.css"/>
-    <link rel="stylesheet" href="<%=basePath%>/lib/layui/css/layui.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>/static/layui/css/layui.css"/>
     <style type="text/css">
         .header{
-            background-image: url("<%=basePath%>/img/color.jpeg");
+            background-image: url("<%=basePath%>/static/img/color.jpeg");
             background-size: 100%;
             height: 240px;
         }
@@ -37,10 +37,10 @@
 <body>
 <div class="header">
     <div style="margin: 0 45% 0 45%;padding-top:5%;text-align:center;">
-        <div style="height:39px;width:167px;background:black;text-align:center;">
-            <h3 style="font-family: Menlo;color:white;padding-top:6px;"><strong>TyCoding</strong></h3>
+        <div style="height:16%;width:90%;background:black;text-align:center;">
+            <h3 style="font-family: Menlo;color:white;padding-top:5%;"><strong>TyCoding</strong></h3>
         </div>
-        <h4 style="margin-top:45px;">
+        <h4 style="margin-top:16%;margin-left:-10%;">
             &nbsp;
             <span style="font-size:20px;" class="fa fa-github fa-fw"></span>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,24 +59,24 @@
 
 <div class="container">
     <div id="content">
-        <h2 class="text-nowrap" style="color: #393D49;text-align:center;padding-top:20px;font-family: Menlo">文章管理系统</h2>
+        <h2 class="text-nowrap" style="color: #393D49;text-align:center;padding-top:10%;font-family: Menlo">文章管理系统</h2>
         <div style="text-align: center;">
             <br/>
             <br/>
-            <label style="font-size:20px;color:white;padding-right:50px;">
+            <label style="font-size:20px;color:white;padding-right:8%;">
                 <a href="#" id="login" style="text-decoration: none;border-bottom:2px solid #009688;color:#009688">登录</a>
             </label>
-            <label style="font-size:20px;color:white;padding-left:50px;">
+            <label style="font-size:20px;color:white;padding-left:8%;">
                 <a href="#" id="register" style="text-decoration:none;">注册</a>
             </label>
         </div>
         <hr style="color: #484848;text-align:center;"/>
         <!-- 登录的表单 -->
-        <form action="<%=basePath%>/admin/login.do" id="loginform" method="post" class="layui-form" style="text-align: center;margin-right:58px;margin-top:40px;">
+        <form action="<%=basePath%>/admin/login.do" id="loginform" method="post" class="layui-form" style="text-align: center;margin-right:12%;margin-top:10%;">
             <input name="a_id" hidden="hidden" value="${a_id}"/>
             <div>
                 <div class="layui-form-item layui-inline" style="width:110%">
-                    <label class="layui-form-label" style="margin-left:58px;"><i class="fa fa-user fa-fw"></i></label>
+                    <label class="layui-form-label" style="margin-left:13%;"><i class="fa fa-user fa-fw"></i></label>
                     <div class="layui-input-inline">
                         <input type="text" name="a_name" class="layui-input" style="background:none;border: none;border-bottom:1px solid white;" placeholder="Username"/>
                     </div>
@@ -99,10 +99,10 @@
             </div>
         </form>
         <!-- 注册的表单 -->
-        <form action="<%=basePath%>/admin/register.do" id="registerform" method="post" class="layui-form" hidden="hidden" style="text-align: center;margin-right:58px;margin-top:40px;">
+        <form action="<%=basePath%>/admin/register.do" id="registerform" method="post" class="layui-form" hidden="hidden" style="text-align: center;margin-right:12%;margin-top:10%;">
             <div>
                 <div class="layui-form-item layui-inline" style="width:110%">
-                    <label class="layui-form-label" style="margin-left:58px;"><i class="fa fa-user fa-fw"></i></label>
+                    <label class="layui-form-label" style="margin-left:13%;"><i class="fa fa-user fa-fw"></i></label>
                     <div class="layui-input-inline">
                         <input type="text" name="a_name" id="a_name" onblur="return checkName();" class="layui-input" style="background:none;border: none;border-bottom:1px solid white;" placeholder="Username"/>
                     </div>
@@ -110,7 +110,7 @@
                 </div>
                 <br/>
                 <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">
+                    <label class="layui-form-label" style="font-size:16px;">
                         <span class="fa fa-lock fa-fw"></span>
                     </label>
                     <div class="layui-input-inline">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <br/>
-                <div class="layui-form-item layui-inline" style="margin-left: 58px;">
+                <div class="layui-form-item layui-inline" style="margin-left: 14%;">
                     <label class="layui-form-label">
                         <span class="fa fa-envelope fa-fw"></span>
                     </label>
@@ -126,12 +126,12 @@
                         <input type="text" id="check" class="layui-input" style="background:none;border: none;border-bottom:1px solid white;"/>
                     </div>
                     <div class="layui-input-inline">
-                        <input id="code" onclick="createCode()" type="button" style="background:none;border: none;margin-left:198px;margin-top:-27px;"/>
+                        <input id="code" onclick="createCode()" type="button" style="background:none;border: none;margin-left:198px;margin-top:-14%;"/>
                     </div>
                 </div>
                 <br/>
                 <br/>
-                <div style="text-align:center;color: #009688;background-color: #01AAED;width:48%;margin-left:138px;">
+                <div style="text-align:center;color: #009688;background-color: #01AAED;width:48%;margin-left:34%;">
                     <input type="button" class="layui-btn layui-btn-lg" style="background: none;" value="Sing up" onclick="validate()"/>
                 </div>
             </div>
@@ -140,8 +140,8 @@
     </div>
 </div>
 </body>
-<script src="<%=basePath%>/lib/jquery-3.3.1.min.js"></script>
-<script src="<%=basePath%>/lib/layui/layui.all.js"></script>
+<script src="<%=basePath%>/static/js/jquery-3.3.1.min.js"></script>
+<script src="<%=basePath%>/static/layui/layui.all.js"></script>
 <script type="text/javascript">
     layui.use(['layer','element'], function(){
         var layer = layui.layer;
