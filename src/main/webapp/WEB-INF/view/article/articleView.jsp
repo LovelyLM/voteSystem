@@ -122,7 +122,7 @@
                                         <div>
                                             <span style="color:#5FB878">${reply.lr_name}&nbsp;&nbsp;</span>
                                         </div>
-                                        <div>${reply.lr_content}</div>
+                                        <div>@${reply.lr_for_name}:&nbsp;&nbsp; ${reply.lr_content}</div>
                                     </div>
                                     <div>
                                         <div class="comment-parent" style="text-align:left;margin-top:7px;margin-left:61px;color:#444">
@@ -143,7 +143,9 @@
                                                 <input name="lr_for_words" id="lr_for_words" value="${words.lw_id}" hidden="hidden"/>
                                                 <input name="lr_for_reply" id="lr_for_reply" value="${reply.lr_id}" hidden="hidden"/>
                                                 <div class="layui-form-item">
-                                                    <textarea name="lr_content" id="lr_content" lay-verify="replyContent" placeholder="请输入回复内容" class="layui-textarea" style="min-height:80px;"></textarea>
+                                                    <textarea name="lr_content" id="lr_content" lay-verify="replyContent" placeholder="请输入回复内容" class="layui-textarea" style="min-height:80px;">
+                                                      @${words.lw_name}:&nbsp;&nbsp;
+                                                  </textarea>
                                                 </div>
                                                 <div class="layui-form-item">
                                                     <button id="replyBtn" class="layui-btn layui-btn-mini" lay-submit="formReply" lay-filter="formReply">提交</button>
