@@ -1,3 +1,5 @@
+create database leave_message character set utf8;
+use leave_message;
 create table admin(
     a_id int primary key auto_increment,
     a_name varchar(100),
