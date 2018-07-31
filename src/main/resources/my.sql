@@ -35,5 +35,6 @@ create table reply(
   lr_content varchar(100),
   lr_for_name varchar(100),
   lr_for_words varchar(100),
+  lr_for_reply varchar(100),
   lr_for_article_id varchar(100)
 )default charset = utf8;
