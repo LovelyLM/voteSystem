@@ -17,7 +17,7 @@
          http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 开启注解扫描 -->
-    <context:component-scan base-package="cn.tycoding.controller"/>
+    <context:component-scan base-package="com.leiming.controller"/>
 
     <!-- 配置springmvc的驱动，并开启了对JSON数据格式的支持 -->
     <mvc:annotation-driven/>
