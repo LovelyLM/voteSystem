@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.leiming.mapper.VoteDao">
+
+    <select id="findAll" resultType="com.leiming.entity.Vote">
+        select * from vote
+    </select>
+    <select id="findAllByVid" resultType="com.leiming.entity.Vote">
+        select * from vote where vid=#{vid}
+    </select>
+    <select id="findAllVotePlayer" resultType="String" parameterType="int">
+        select vplayer from vote where vid=#{vid}
+    </select>
+    <select id="findPoll" resultType="String" parameterType="int">
+        select vpoll from vote where vid=#{vid}
+    </select>
+    <select id="findDescribe" resultType="String" parameterType="int">
+        select vdescribe from vote where vid=#{vid}
+    </select>
+    <insert id="addVote" parameterType="com.leiming.entity.Vote">
+		insert into vote(vdescribe,vplayer,ltime)
+		values(#{vdescribe},#{vplayer},#{ltime})
+	</insert>
+    <delete id="deleteVote" parameterType="int">
+        delete from vote where vid=#{vid}
+    </delete>
+</mapper>
