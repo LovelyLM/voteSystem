@@ -1,5 +1,6 @@
 package com.leiming.service;
 
+import com.leiming.entity.Score;
 import com.leiming.entity.Vote;
 
 import java.util.List;
@@ -16,5 +17,8 @@ public interface VoteService {
     String findAllVotePlayer(int vid);
     String findPoll(int vid);
     String findDescribe(int vid);
+    int updateIp(Score score);
+    List<Score> selectScore(Score score);
+    int updateScore(Score score);
 
 }

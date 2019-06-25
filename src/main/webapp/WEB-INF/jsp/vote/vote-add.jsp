@@ -126,7 +126,19 @@
 
 
             form.render();
-        })
+        });
+        isRepeat=function (arr){
+            var obj = {};
+
+            for(var i in arr) {
+                //存在重复值
+                if(obj[arr[i]])  return true;
+
+                obj[arr[i]] = true;
+            }
+            //不重复
+            return false;
+        }
 
 
 
@@ -138,44 +150,89 @@
             var m = parseInt(ltime.substring(3,5))*60;
             var s = parseInt(ltime.substring(6,8));
             var palyers=new Array();
+            var vpoll=new Array();
                 $( "select option:selected" ).each(function() {
                     palyers.push($(this).val());
+                    vpoll.push('0');
 
                 });
-                palyers =palyers.join();
-            ltime = h+m+s;
-                $.ajax({
-                    type: "POST",
-                    url: "<%=basePath%>/addVote",
-                    data:{'vdescribe':$("input[name='vdescribe']").val(),
-                    'ltime':ltime,'vplayer':palyers
-                    },
-                    success: function(response){
-                        if(response==1){
-                            layer.alert("增加成功", {
-                                    icon: 6
-                                },
-                                function() {
-                                    // 获得frame索引
-                                    var index = parent.layer.getFrameIndex(window.name);
-                                    //关闭当前frame
-                                    parent.layer.close(index);
-                                });
-                        }else if (response==2){
-                            layer.msg("请输入正确的选手名！！",{icon: 5});
+                if (isRepeat(palyers)){
+                    layer.alert("请不要选择相同选手！！")
+                }else {
+                    palyers =palyers.join();
+                    vpoll =vpoll.join();
+                    ltime = h+m+s;
 
+                    $.ajax({
+                        type: "POST",
+                        url: "<%=basePath%>/addVote",
+                        data:{'vdescribe':$("input[name='vdescribe']").val(),
+                            'ltime':ltime,'vplayer':palyers,'vpoll':vpoll
+                        },
+                        success: function(response){
+
+                            if(response==1){
+                                layer.alert("增加成功", {
+                                        icon: 6
+                                    },
+                                    function() {
+                                        // 获得frame索引
+                                        var index = parent.layer.getFrameIndex(window.name);
+                                        //关闭当前frame
+                                        parent.layer.close(index);
+                                    });
+                            }else if (response==2){
+                                layer.msg("请输入正确的选手名！！",{icon: 5});
+
+                            } else{
+                                layer.msg("增加失败",{icon: 5},
+                                    function() {
+                                        // 获得frame索引
+                                        var index = parent.layer.getFrameIndex(window.name);
+                                        //关闭当前frame
+                                        parent.layer.close(index);
+                                    });
+                            }
                         }
-                        else{
-                            layer.msg("增加失败",{icon: 5},
-                                function() {
-                                // 获得frame索引
-                                var index = parent.layer.getFrameIndex(window.name);
-                                //关闭当前frame
-                                parent.layer.close(index);
-                            });
-                        }
-                    }
-                });
+                    });
+
+                }
+                <%--palyers =palyers.join();--%>
+                <%--vpoll =vpoll.join();--%>
+                <%--ltime = h+m+s;--%>
+
+                <%--$.ajax({--%>
+                <%--    type: "POST",--%>
+                <%--    url: "<%=basePath%>/addVote",--%>
+                <%--    data:{'vdescribe':$("input[name='vdescribe']").val(),--%>
+                <%--    'ltime':ltime,'vplayer':palyers,'vpoll':vpoll--%>
+                <%--    },--%>
+                <%--    success: function(response){--%>
+                <%--        --%>
+                <%--        if(response==1){--%>
+                <%--            layer.alert("增加成功", {--%>
+                <%--                    icon: 6--%>
+                <%--                },--%>
+                <%--                function() {--%>
+                <%--                    // 获得frame索引--%>
+                <%--                    var index = parent.layer.getFrameIndex(window.name);--%>
+                <%--                    //关闭当前frame--%>
+                <%--                    parent.layer.close(index);--%>
+                <%--                });--%>
+                <%--        }else if (response==2){--%>
+                <%--            layer.msg("请输入正确的选手名！！",{icon: 5});--%>
+
+                <%--        } else{--%>
+                <%--            layer.msg("增加失败",{icon: 5},--%>
+                <%--                function() {--%>
+                <%--                // 获得frame索引--%>
+                <%--                var index = parent.layer.getFrameIndex(window.name);--%>
+                <%--                //关闭当前frame--%>
+                <%--                parent.layer.close(index);--%>
+                <%--            });--%>
+                <%--        }--%>
+                <%--    }--%>
+                <%--});--%>
                 return false;
             });
 

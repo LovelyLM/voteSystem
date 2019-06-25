@@ -67,5 +67,11 @@ public class AdminController {
         model.addAttribute("vid",vid);
         return "/jsp/voteResult";
     }
+    @RequestMapping("/voting")
+    public String voting(int vid,Model model){
+        Vote vote = voteService.findAllByVid(vid);
+        model.addAttribute("vote",vote);
+        return "/jsp/voting";
+    }
 
 }

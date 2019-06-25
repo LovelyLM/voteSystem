@@ -81,7 +81,7 @@
                                 <input type="checkbox" name="id" value="1"   lay-skin="primary">
                             </td>
                             <td style="display: none">${vote.vid}</td>
-                            <td style="display: none">${vote.limit}</td>
+                            <td style="display: none">${vote.ltime}</td>
                             <td>${s.count}</td>
                             <td>${vote.vdescribe}</td>
 

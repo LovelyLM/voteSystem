@@ -14,6 +14,21 @@ public class Vote {
     private Timestamp vstart;
     private int status;
     private int ltime;
+    private String ips;
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "vid=" + vid +
+                ", vdescribe='" + vdescribe + '\'' +
+                ", vplayer='" + vplayer + '\'' +
+                ", vpoll='" + vpoll + '\'' +
+                ", vstart=" + vstart +
+                ", status=" + status +
+                ", ltime=" + ltime +
+                ", ips='" + ips + '\'' +
+                '}';
+    }
 
     public Integer getVid() {
         return vid;
@@ -63,24 +78,19 @@ public class Vote {
         this.status = status;
     }
 
-    public int getLimit() {
+    public int getLtime() {
         return ltime;
     }
 
-    public void setLimit(int limit) {
-        this.ltime = limit;
+    public void setLtime(int ltime) {
+        this.ltime = ltime;
     }
 
-    @Override
-    public String toString() {
-        return "Vote{" +
-                "vid=" + vid +
-                ", vdescribe='" + vdescribe + '\'' +
-                ", vplayer='" + vplayer + '\'' +
-                ", vpoll='" + vpoll + '\'' +
-                ", vstart=" + vstart +
-                ", status=" + status +
-                ", limit=" + ltime +
-                '}';
+    public String getIps() {
+        return ips;
+    }
+
+    public void setIps(String ips) {
+        this.ips = ips;
     }
 }

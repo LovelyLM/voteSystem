@@ -1,5 +1,6 @@
 package com.leiming.service.impl;
 
+import com.leiming.entity.Score;
 import com.leiming.entity.Vote;
 import com.leiming.mapper.VoteDao;
 import com.leiming.service.VoteService;
@@ -42,5 +43,17 @@ public class VoteServiceImpl implements VoteService {
 
     public String findDescribe(int vid) {
         return voteDao.findDescribe(vid);
+    }
+
+    public int updateIp(Score score) {
+        return voteDao.updateIp(score);
+    }
+
+    public List<Score> selectScore(Score score) {
+        return voteDao.selectScore(score);
+    }
+
+    public int updateScore(Score score) {
+        return voteDao.updateScore(score);
     }
 }

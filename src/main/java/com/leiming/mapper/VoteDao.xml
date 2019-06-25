@@ -20,10 +20,19 @@
         select vdescribe from vote where vid=#{vid}
     </select>
     <insert id="addVote" parameterType="com.leiming.entity.Vote">
-		insert into vote(vdescribe,vplayer,ltime)
-		values(#{vdescribe},#{vplayer},#{ltime})
+		insert into vote(vdescribe,vplayer,ltime,vpoll)
+		values(#{vdescribe},#{vplayer},#{ltime},#{vpoll})
 	</insert>
     <delete id="deleteVote" parameterType="int">
         delete from vote where vid=#{vid}
     </delete>
+    <update id="updateScore"  parameterType="com.leiming.entity.Score">
+		UPDATE vote SET vpoll = #{vpoll} WHERE vid = #{vid}
+	</update>
+    <update id="updateIp"  parameterType="com.leiming.entity.Score">
+		UPDATE vote SET ips = #{ips} WHERE vid = #{vid}
+	</update>
+    <select id="selectScore" parameterType="int"  resultType="com.leiming.entity.Score">
+		SELECT vpoll,vplayer,ips FROM vote where vid=#{vid}
+	</select>
 </mapper>
