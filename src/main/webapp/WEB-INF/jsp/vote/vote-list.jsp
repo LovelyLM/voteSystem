@@ -99,7 +99,7 @@
                             </c:if>
 
 
-                                <a title="显示投票地址" onclick="xadmin.open('扫一扫以投票！','http://qr.liantu.com/api.php?text=http://192.168.180.29:8080/<%=basePath%>/voteResult?vid=${vote.vid}','300','360')" href="javascript:;">
+                                <a title="显示投票地址" onclick="xadmin.open('扫一扫以投票！','http://qr.liantu.com/api.php?text=<%=basePath%>/voting?vid=${vote.vid}','300','360')" href="javascript:;">
                                     <i class="layui-icon">&#xe63c;</i></a>
                                 <a title="删除" onclick="voteDelete('${vote.vid}')" href="javascript:;">
                                     <i class="layui-icon">&#xe640;</i>
