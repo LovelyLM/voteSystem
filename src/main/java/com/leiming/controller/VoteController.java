@@ -58,6 +58,11 @@ public class VoteController {
     public String findDescribe(int vid){
         return voteService.findDescribe(vid);
     }
+    @RequestMapping("/findStatus")
+    @ResponseBody
+    public int findStatus(int vid){
+        return voteService.findStatus(vid);
+    }
     @RequestMapping(value = "/vote", produces = "application/json; charset=utf-8")
     @ResponseBody
     public int vote(String name,String newi,int vid) {

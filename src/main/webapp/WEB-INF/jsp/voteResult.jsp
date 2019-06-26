@@ -119,7 +119,7 @@
                 z: 2
             }
         ]
-    };;
+    };
 
 
     setInterval(function () {

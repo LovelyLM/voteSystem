@@ -41,15 +41,25 @@
         <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
         <hr class="hr15">
         <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit" id="login">
+        <span style="color: red">${msg}</span>
         <hr class="hr20" >
     </form>
 </div>
 
 <script>
-    $(function  () {
-        layui.use('form', function(){
 
-        });
+    $(function  () {
+        layui.use(['form', 'layer','jquery'],
+            function() {
+                $ = layui.jquery;
+                var form = layui.form,
+                    layer = layui.layer;
+
+
+            });
+        $("input").click(function () {
+            $("span").css("display","none");
+        })
     })
 </script>
 </body>

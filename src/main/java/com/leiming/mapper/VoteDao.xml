@@ -38,4 +38,7 @@
     <select id="closeVote" parameterType="int" resultType="Integer" >
 		UPDATE vote SET status = 0 WHERE vid = #{vid}
 	</select>
+    <select id="findStatus" parameterType="int" resultType="int">
+		select status from vote WHERE vid = #{vid}
+	</select>
 </mapper>

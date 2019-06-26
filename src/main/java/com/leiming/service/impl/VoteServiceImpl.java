@@ -60,4 +60,8 @@ public class VoteServiceImpl implements VoteService {
     public Integer closeVote(int vid) {
         return voteDao.closeVote(vid);
     }
+
+    public int findStatus(int vid) {
+        return voteDao.findStatus(vid);
+    }
 }

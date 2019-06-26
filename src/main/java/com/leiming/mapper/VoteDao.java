@@ -21,6 +21,7 @@ public interface VoteDao {
     List<Score> selectScore(Score score);
     int updateScore(Score score);
     Integer closeVote(int vid);
+    int findStatus(int vid);
 
 
 

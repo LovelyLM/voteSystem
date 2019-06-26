@@ -22,22 +22,29 @@ public class AdminController {
     private VoteService voteService;
     @Autowired
     private AdminService adminService;
-    @RequestMapping("/login")
-    public String login(Admin admin,Model model){
-        if (adminService.login(admin.getUsername())!=null){
-            if (adminService.login(admin.getUsername()).getPassword()==admin.getPassword()){
-                model.addAttribute("username",admin.getUsername());
-                return "index";
-            }
-        }
+    @RequestMapping("/toLogin")
+    public String toLogin(){
+        return null;
 
-        return "login";
     }
-    @RequestMapping("/index")
-    public String index(String username,Model model){
-        model.addAttribute("username",username);
-        return "index";
+    @RequestMapping("/login")
+    public String login(String username,String password,Model model){
+
+        Admin admin = adminService.login(username);
+        if (admin!=null){
+            if (admin.getPassword().equals(password)){
+                model.addAttribute("username",username);
+                return "index";
+            }else {
+                model.addAttribute("msg","密码错误！");
+                return "login";
+            }
+        }else {
+            model.addAttribute("msg","账号不存在！");
+            return "login";
+        }
     }
+
     @RequestMapping("/welcome")
     public String welcome(){
         return "jsp/welcome";

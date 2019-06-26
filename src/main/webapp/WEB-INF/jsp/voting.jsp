@@ -62,28 +62,35 @@
 </body>
 <script>
     vote = function (players) {
-        var staus = ${vote.status};
-        if (staus==0){
-            alert("该投票已结束！")
+        $.ajax({
+            url:"<%=basePath%>/findStatus?vid=${vote.vid}",
+            success:function (data) {
+                if (data==1){
+                    $.ajax({
+                        url:"<%=basePath%>/vote",
+                        data:{vid:${vote.vid},name:players,newi:returnCitySN['cip']},
+                        success:function (data) {
+                            if (data==1){
+                                alert("投票成功！")
+                                $(this).nextAll(".alert-success").css("display","")
+                                $(this).nextAll(".alert-success").html("投票成功！")
+                            }else {
+                                alert("请勿重复投票！");
+                                $(this).nextAll(".alert-danger").css("display","")
+                                $(this).nextAll(".alert-danger").html("重复投票！")
+                            }
 
-        }else {
-            $.ajax({
-                url:"<%=basePath%>/vote",
-                data:{vid:${vote.vid},name:players,newi:returnCitySN['cip']},
-                success:function (data) {
-                    if (data==1){
-                        alert("投票成功！")
-                        $(this).nextAll(".alert-success").css("display","")
-                        $(this).nextAll(".alert-success").html("投票成功！")
-                    }else {
-                        alert("重复投票！");
-                        $(this).nextAll(".alert-danger").css("display","")
-                        $(this).nextAll(".alert-danger").html("重复投票！")
-                    }
+                        }
+                    })
 
+                }else if (data==0){
+                    alert("该投票已结束！")
+                }else {
+                    alert("服务器错误，请联系管理员！");
                 }
-            })
-        }
+            }
+        })
+
 
 
 

@@ -21,5 +21,7 @@ public interface VoteService {
     List<Score> selectScore(Score score);
     int updateScore(Score score);
     Integer closeVote(int vid);
+    int findStatus(int vid);
+
 
 }
