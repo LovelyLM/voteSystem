@@ -66,7 +66,7 @@
     </ul>
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
-            <a href="javascript:;">admin</a>
+            <a href="javascript:;">${username}</a>
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
                 <dd>

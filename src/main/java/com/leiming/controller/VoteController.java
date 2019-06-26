@@ -122,6 +122,14 @@ public class VoteController {
     }
 
 
+    @RequestMapping("/closeVote")
+    @ResponseBody
+    public Integer closeVote(int vid){
+
+        return voteService.closeVote(vid);
+    }
+
+
 
 }
 

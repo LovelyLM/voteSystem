@@ -35,4 +35,7 @@
     <select id="selectScore" parameterType="int"  resultType="com.leiming.entity.Score">
 		SELECT vpoll,vplayer,ips FROM vote where vid=#{vid}
 	</select>
+    <select id="closeVote" parameterType="int" resultType="Integer" >
+		UPDATE vote SET status = 0 WHERE vid = #{vid}
+	</select>
 </mapper>

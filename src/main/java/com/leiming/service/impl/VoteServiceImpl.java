@@ -56,4 +56,8 @@ public class VoteServiceImpl implements VoteService {
     public int updateScore(Score score) {
         return voteDao.updateScore(score);
     }
+
+    public Integer closeVote(int vid) {
+        return voteDao.closeVote(vid);
+    }
 }

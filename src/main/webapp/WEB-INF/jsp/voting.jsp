@@ -33,11 +33,11 @@
     <c:forEach items="${players}" var="players">
     <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-            <img src="/wp-content/uploads/2014/06/kittens.jpg" class="img-circle"
+            <img src="http://api.laolibab.cn/king/dm_tupian.php" class="img-circle"
                  alt="">
             <div class="caption">
                 <h3>${players}</h3>
-                <p>一些示例文本。一些示例文本。</p>
+                <p>我是${players},请为我投票吧！</p>
                 <p>
                     <a class="btn btn-primary" role="button" onclick="vote('${players}')">
                         <span class="glyphicon glyphicon-thumbs-up"></span>
@@ -53,7 +53,7 @@
     </c:forEach>
 
     <div class="row">
-        <iframe class="embed-responsive-item" src="http://localhost:8080/ssm2_war/voteResult?vid=6" width="100%" height="700px">
+        <iframe class="embed-responsive-item" src="<%=basePath%>/voteResult?vid=${vote.vid}" width="100%" height="700px">
         </iframe>
     </div>
 
@@ -62,22 +62,31 @@
 </body>
 <script>
     vote = function (players) {
-        $.ajax({
-            url:"<%=basePath%>/vote",
-            data:{vid:${vote.vid},name:players,newi:returnCitySN['cip']},
-            success:function (data) {
-                if (data==1){
-                    alert("投票成功！")
-                    $(this).nextAll(".alert-success").css("display","")
-                    $(this).nextAll(".alert-success").html("投票成功！")
-                }else {
-                    alert("重复投票！");
-                    $(this).nextAll(".alert-danger").css("display","")
-                    $(this).nextAll(".alert-danger").html("重复投票！")
-                }
+        var staus = ${vote.status};
+        if (staus==0){
+            alert("该投票已结束！")
 
-            }
-        })
+        }else {
+            $.ajax({
+                url:"<%=basePath%>/vote",
+                data:{vid:${vote.vid},name:players,newi:returnCitySN['cip']},
+                success:function (data) {
+                    if (data==1){
+                        alert("投票成功！")
+                        $(this).nextAll(".alert-success").css("display","")
+                        $(this).nextAll(".alert-success").html("投票成功！")
+                    }else {
+                        alert("重复投票！");
+                        $(this).nextAll(".alert-danger").css("display","")
+                        $(this).nextAll(".alert-danger").html("重复投票！")
+                    }
+
+                }
+            })
+        }
+
+
+
     }
 </script>
 

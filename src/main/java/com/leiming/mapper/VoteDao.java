@@ -20,6 +20,7 @@ public interface VoteDao {
     int updateIp(Score score);
     List<Score> selectScore(Score score);
     int updateScore(Score score);
+    Integer closeVote(int vid);
 
 
 

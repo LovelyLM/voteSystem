@@ -1,9 +1,12 @@
 package com.leiming.controller;
 
+import com.leiming.entity.Admin;
 import com.leiming.entity.Player;
 import com.leiming.entity.Vote;
+import com.leiming.service.AdminService;
 import com.leiming.service.PlayerService;
 import com.leiming.service.VoteService;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +20,22 @@ public class AdminController {
     private PlayerService playerService;
     @Autowired
     private VoteService voteService;
+    @Autowired
+    private AdminService adminService;
     @RequestMapping("/login")
-    public String login(){
+    public String login(Admin admin,Model model){
+        if (adminService.login(admin.getUsername())!=null){
+            if (adminService.login(admin.getUsername()).getPassword()==admin.getPassword()){
+                model.addAttribute("username",admin.getUsername());
+                return "index";
+            }
+        }
+
         return "login";
     }
     @RequestMapping("/index")
-    public String index(){
+    public String index(String username,Model model){
+        model.addAttribute("username",username);
         return "index";
     }
     @RequestMapping("/welcome")
