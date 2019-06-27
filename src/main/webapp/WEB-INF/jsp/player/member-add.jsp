@@ -58,7 +58,7 @@
             </div>
             <div class="layui-form-item">
                 <label for="" class="layui-form-label">
-                    <span class="x-red">*</span>QQ号码</label>
+                    <span class="x-red">*</span>手机号码</label>
                 <div class="layui-input-inline">
                     <input type="text" id="" name="telephone" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
             </div>

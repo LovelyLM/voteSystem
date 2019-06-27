@@ -89,21 +89,21 @@
 
                             <c:if test="${vote.status==1}">
                             <td class="td-status">
-                                <span class="layui-btn layui-btn-normal layui-btn-mini" onclick="xadmin.open('投票详情','<%=basePath%>/voteResult?vid='+'${vote.vid}',1200,800)">投票进行中,点击查看投票详情</span>
+                                <a href='<%=basePath%>/voteResult?vid=${vote.vid}' target="view_window"><span class="layui-btn layui-btn-normal layui-btn-mini">投票进行中,点击查看投票详情</span></a>
                                 <button type="button" class="layui-btn" onclick="closeVote('${vote.vid}')">点击关闭投票</button>
                             </td>
                             <td class="td-manage">
                             </c:if>
                             <c:if test="${vote.status==0}">
                             <td class="td-status">
-                                <span class="layui-btn layui-btn-danger layui-btn-mini" onclick="xadmin.open('投票详情','<%=basePath%>/voteResult?vid='+'${vote.vid}',1200,800)">投票已结束,点击查看投票结果</span>
+                                <a href='<%=basePath%>/voteResult?vid=${vote.vid}' target="view_window"><span class="layui-btn layui-btn-danger layui-btn-mini" >投票已结束,点击查看投票结果</span></a>
                             <button type="button" class="layui-btn" onclick="closeVote('${vote.vid}')">点击关闭投票</button>
                         </td>
                             <td class="td-manage">
                             </c:if>
 
 
-                                <a title="显示投票地址" onclick="xadmin.open('扫一扫以投票！','http://qr.liantu.com/api.php?text=<%=basePath%>/voting?vid=${vote.vid}','300','360')" href="javascript:;">
+                                <a title="显示投票地址" onclick="xadmin.open('扫一扫以投票！','http://qr.liantu.com/api.php?text=<%=basePath%>/voting?vid='+'${vote.vid}','300','360')" href="javascript:;">
                                     <i class="layui-icon">&#xe63c;</i></a>
                                 <a title="删除" onclick="voteDelete('${vote.vid}')" href="javascript:;">
                                     <i class="layui-icon">&#xe640;</i>
