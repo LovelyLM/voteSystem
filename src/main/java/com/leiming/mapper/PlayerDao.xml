@@ -4,7 +4,7 @@
 
 <mapper namespace="com.leiming.mapper.PlayerDao">
     <select id="findAll" resultType="com.leiming.entity.Player">
-        select * from player
+        select * from player order by id DESC
     </select>
     <select id="findById" resultType="com.leiming.entity.Player">
         select * from player where id=#{id}

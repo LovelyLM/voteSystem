@@ -68,6 +68,7 @@
                 if (data==1){
                     $.ajax({
                         url:"<%=basePath%>/vote",
+                        type:"post",
                         data:{vid:${vote.vid},name:players,newi:returnCitySN['cip']},
                         success:function (data) {
                             if (data==1){

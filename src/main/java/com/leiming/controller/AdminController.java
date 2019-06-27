@@ -93,5 +93,11 @@ public class AdminController {
         model.addAttribute("vote",vote);
         return "/jsp/voting";
     }
+    @RequestMapping("/toVoting")
+    public String toVoting(Model model){
+        List<Vote> all = voteService.findAll();
+        model.addAttribute("vote",all);
+        return "/jsp/toVoting";
+    }
 
 }

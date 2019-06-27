@@ -40,7 +40,7 @@
 <body>
 <div class="wrapper">
     <!--背景图片-->
-    <div id="web_bg" style="background-image: url(<%=basePath%>/images/bg2.pnghlkhlkjlkjlkjljdfsLKFDLSK);"></div>
+    <div id="web_bg" style="background-image: url(<%=basePath%>/images/bg2.png);"></div>
     <!--其他代码 ... -->
 </div>
 
