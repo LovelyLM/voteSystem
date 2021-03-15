@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminDao adminDao;
+    @Override
     public Admin login(String username) {
         return adminDao.login(username);
     }

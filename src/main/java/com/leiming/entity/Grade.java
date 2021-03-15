@@ -1,5 +1,8 @@
 package com.leiming.entity;
 
+/**
+ * @author 10796
+ */
 public class Grade {
 
     private int id;
@@ -28,5 +31,14 @@ public class Grade {
 
     public int getGrade() {
         return grade;
+    }
+
+    public Grade() {
+    }
+
+    public Grade(int id, int courseId, int grade) {
+        this.id = id;
+        this.courseId = courseId;
+        this.grade = grade;
     }
 }

@@ -6,7 +6,7 @@ public class StudentDetailInfo {
     private int stuNo;
     private String name;
     private int courseSum;
-    private List<String> courseName;
+    private String courseName;
     private int noPassSum;
     private int avgGrade;
     private int sumGrade;
@@ -27,7 +27,7 @@ public class StudentDetailInfo {
         this.courseSum = courseSum;
     }
 
-    public void setCourseName(List<String> courseName) {
+    public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
 
@@ -71,7 +71,7 @@ public class StudentDetailInfo {
         return courseSum;
     }
 
-    public List<String> getCourseName() {
+    public String getCourseName() {
         return courseName;
     }
 

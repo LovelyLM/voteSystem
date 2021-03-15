@@ -4,7 +4,7 @@
 
 <mapper namespace="com.leiming.mapper.StudentDao">
     <select id="findAll" resultType="com.leiming.entity.Student">
-        select * from student order by sum_grade DESC
+        select * from student order by sumGrade DESC
     </select>
     <select id="findById" resultType="com.leiming.entity.Student">
         select * from student where id=#{id}
@@ -16,10 +16,16 @@
         delete from student where id=#{id}
     </delete>
     <insert id="addPlayer" parameterType="com.leiming.entity.Student">
-        insert into student(name,stu_no,class_name,sum_grade)
+        insert into student(name,stuNo,className,sumGrade)
         values(#{name},#{stuNo},#{className},#{sumGrade})
     </insert>
     <update id="updatePlayer" parameterType="com.leiming.entity.Student">
-        update player set name=#{name},stu_no=#{stuNo},class_name=#{className},sum_grade=#{sumGrade} where id=#{id}
+        update player set name=#{name},stuNo=#{stuNo},className=#{className},sumGrade=#{sumGrade} where id=#{id}
     </update>
+
+    <select id="selectAllGrade" resultType="com.leiming.entity.vo.GradeVo">
+        SELECT s.id, courseName, credit, period, grade FROM course c, grade g, student s
+        where g.courseID = c.id and g.studentID = s.id
+    </select>
+
 </mapper>

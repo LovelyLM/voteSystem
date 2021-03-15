@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.leiming.mapper.AdminDao">
-    <select id="login" resultType="com.leiming.entity.Admin">
-        select * from admin where username =#{username}
+<mapper namespace="com.leiming.mapper.CourseDao">
+    <select id="selectAll" resultType="com.leiming.entity.Course">
+        select * from course
     </select>
 </mapper>

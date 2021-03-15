@@ -36,8 +36,8 @@
         <th>不及格门数</th>
         <th>平均分</th>
         <th>总分</th>
-        <th>总学分</th>
         <th>所得学分</th>
+        <th>平均学分</th>
         <th>排名</th>
     </tr>
     <c:set value="${students }" var="students" />
@@ -51,21 +51,14 @@
             <c:forEach items="${gradeVoList}" var="gradeVo">
                 <th>${gradeVo.grade}</th>
             </c:forEach>
-            <td>${student.noPassSum}</td>
-            <td>${student.avgGrade}</td>
-            <td>${student.sumGrade}</td>
-            <td>${student.sumCredit}</td>
-            <td>${student.getCredit}</td>
             <td>${s.count}</td>
         </tr>
     </c:forEach>
+    <%--    <tr>--%>
+    <%--        <td>January</td>--%>
+    <%--        <td>$100</td>--%>
+    <%--    </tr>--%>
 </table>
-<div style="margin-top: 5cm">
-    <button type="button">课程管理</button>
-    <button type="button">学生管理</button>
-</div>
-
-
 
 
 </body>
